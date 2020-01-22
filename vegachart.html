@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-5ef2a5fc159e6d052435f43334a9038b"}, "mark": {"type": "bar", "color": "crimson"}, "encoding": {"x": {"type": "quantitative", "field": "cash_on_hand_end_period", "title": "Cash on Hand"}, "y": {"type": "nominal", "field": "name", "title": null}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-5ef2a5fc159e6d052435f43334a9038b": [{"name": "Cynthia Jean Breyman", "receipts": 19292.73, "disbursements": 19792.73, "cash_on_hand_end_period": 4500.0, "debts_owed_by_committee": 0.0, "contributions": 2500.0}, {"name": "Ross Alan Schumann", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "Brandon Batch", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "Jon Mark Hogg", "receipts": 9767.05, "disbursements": 2279.1, "cash_on_hand_end_period": 7487.95, "debts_owed_by_committee": 0.0, "contributions": 7043.05}, {"name": "August Pfluger", "receipts": 704910.0, "disbursements": 5133.58, "cash_on_hand_end_period": 699776.42, "debts_owed_by_committee": 18096.56, "contributions": 832760.0}, {"name": "Wesley Virdell", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "Richard Bartlett", "receipts": 22620.81, "disbursements": 22620.81, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 22350.0}, {"name": "Robert Tucker", "receipts": 245.0, "disbursements": 594.47, "cash_on_hand_end_period": 520.5, "debts_owed_by_committee": 3829.97, "contributions": 0.0}, {"name": "Wacey Alpha Cody", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "Jeffrey Cady", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "James Berryhill", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "Ned Luscombe", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "Casey Gray", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}, {"name": "James Faircloth", "receipts": 0.0, "disbursements": 0.0, "cash_on_hand_end_period": 0.0, "debts_owed_by_committee": 0.0, "contributions": 0.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
