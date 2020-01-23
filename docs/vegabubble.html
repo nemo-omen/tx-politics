@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}, "background": "#f0f0f0", "title": {"fontSize": 20}}, "data": {"name": "data-d3cedb2688b903b6e6905080aaf65121"}, "mark": {"type": "circle", "stroke": "#666666", "strokeOpacity": 1, "strokeWidth": 1}, "encoding": {"color": {"type": "quantitative", "field": "Debt", "legend": {"format": "$,.0f", "offset": 50}, "scale": {"scheme": "reds"}}, "size": {"type": "quantitative", "field": "Cash on hand", "legend": {"format": "$,.0f", "tickCount": 2, "values": [0, 100000]}, "scale": {"range": [100, 7000]}}, "tooltip": [{"type": "ordinal", "field": "name", "title": "Name"}, {"type": "ordinal", "field": "contributions", "format": "$,.0f", "title": "Contributions"}, {"type": "ordinal", "field": "Cash on hand", "format": "$,.0f", "title": "Cash on hand"}, {"type": "ordinal", "field": "disbursements", "format": "$,.0f", "title": "Spending"}, {"type": "ordinal", "field": "Debt", "format": "$,.0f", "title": "Debt"}], "x": {"type": "quantitative", "axis": {"format": "$,.0f"}, "field": "contributions", "scale": {"type": "sqrt", "zero": false}, "sort": "ascending", "title": "Contributions"}, "y": {"type": "quantitative", "axis": {"format": "$,.0f"}, "field": "disbursements", "scale": {"type": "sqrt", "zero": false}, "sort": "ascending", "title": "Spending"}}, "padding": 20, "selection": {"selector001": {"type": "single", "on": "mouseover", "fields": ["name", "cash_on_hand_end_period", "contributions"]}}, "title": "District 11 Campaigns and Their Finances", "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-d3cedb2688b903b6e6905080aaf65121": [{"name": "Ross Alan Schumann", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "Brandon Batch", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "Wesley Virdell", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "Richard Bartlett", "receipts": 22620.81, "disbursements": 22620.81, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 22350.0}, {"name": "Wacey Alpha Cody", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "Jeffrey Cady", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "James Berryhill", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "Ned Luscombe", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "Casey Gray", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "James Faircloth", "receipts": 0.0, "disbursements": 0.0, "Cash on hand": 0.0, "Debt": 0.0, "contributions": 0.0}, {"name": "Robert Tucker", "receipts": 245.0, "disbursements": 594.47, "Cash on hand": 520.5, "Debt": 3829.97, "contributions": 0.0}, {"name": "Cynthia Jean Breyman", "receipts": 19292.73, "disbursements": 19792.73, "Cash on hand": 4500.0, "Debt": 0.0, "contributions": 2500.0}, {"name": "Jon Mark Hogg", "receipts": 9767.05, "disbursements": 2279.1, "Cash on hand": 7487.95, "Debt": 0.0, "contributions": 7043.05}, {"name": "August Pfluger", "receipts": 704910.0, "disbursements": 5133.58, "Cash on hand": 699776.42, "Debt": 18096.56, "contributions": 832760.0}]}};
+      var embedOpt = {"actions": false, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
